@@ -19,7 +19,7 @@ public class SilverBankAccount implements BankAccount{
     }
 
     public void withdraw(int amount) {
-        if (this.getBalance() < amount){
+        if (this.getBalance() < (amount + fee)){
             throw new IllegalStateException();
         }
         base.withdraw(amount + fee);
