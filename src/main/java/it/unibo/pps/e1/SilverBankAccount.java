@@ -2,11 +2,10 @@ package it.unibo.pps.e1;
 
 public class SilverBankAccount implements BankAccount{
 
-    private final CoreBankAccount base;
+    private final BankAccount base;
     private final int fee;
 
-    public SilverBankAccount(CoreBankAccount base, int fee) {
-
+    public SilverBankAccount(BankAccount base, int fee) {
         this.base = base;
         this.fee = fee;
     }
