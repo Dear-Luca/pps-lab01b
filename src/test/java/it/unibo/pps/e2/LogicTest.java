@@ -26,7 +26,8 @@ public class LogicTest {
     }
 
     @Test
-    public void testBoardSetUp() {
+    public void testBoardRandomSetUp() {
+        this.logics = new LogicsImpl(SIZE);
         boolean hasKnight = false;
         boolean hasPawn = false;
 
