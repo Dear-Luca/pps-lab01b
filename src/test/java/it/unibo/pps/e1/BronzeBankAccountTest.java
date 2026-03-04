@@ -18,7 +18,7 @@ public class BronzeBankAccountTest extends AbstractBankAccountTest {
 
     @Override
     double computeBalance(double depositAmount, double withdrawAmount) {
-        return depositAmount - withdrawAmount - ( withdrawAmount < THRESHOLD ? 0 : FEE);
+        return depositAmount - withdrawAmount - (withdrawAmount < THRESHOLD ? 0 : FEE);
     }
 
     @Test
