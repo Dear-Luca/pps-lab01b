@@ -2,7 +2,7 @@ package it.unibo.pps.e2;
 
 import org.junit.jupiter.api.*;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class LogicTest {
     private Logics logics;
@@ -17,12 +17,12 @@ public class LogicTest {
 
     @Test
     public void testHasKnight() {
-        assertTrue(logics.hasKnight(knight.getX(), knight.getY()));
+        assertTrue(this.logics.hasKnight(knight.getX(), knight.getY()));
     }
 
     @Test
     public void testHasPawn() {
-        assertTrue(logics.hasPawn(pawn.getX(), pawn.getY()));
+        assertTrue(this.logics.hasPawn(pawn.getX(), pawn.getY()));
     }
 
     @Test
@@ -33,15 +33,42 @@ public class LogicTest {
 
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
-                if (logics.hasKnight(i, j)) {
+                if (this.logics.hasKnight(i, j)) {
                     hasKnight = true;
                 }
-                if (logics.hasPawn(i, j)) {
+                if (this.logics.hasPawn(i, j)) {
                     hasPawn = true;
                 }
             }
         }
         assertTrue(hasKnight && hasPawn);
+    }
+
+    @Test
+    public void testInvalidMoveKnight(){
+        final Pair<Integer, Integer> nextPosition = new Pair<>(1, 1);
+        assertFalse(this.logics.hit(nextPosition.getX(), nextPosition.getY()));
+    }
+
+    @Test
+    public void testMoveOutOfBound(){
+        final Pair<Integer, Integer> nextPosition = new Pair<>(5, 5);
+        assertThrows(IndexOutOfBoundsException.class, () -> this.logics.hit(nextPosition.getX(), nextPosition.getY()));
+
+    }
+
+    @Test
+    public void testValidMoveKnight(){
+        final Pair<Integer, Integer> nextPosition = new Pair<>(2, 1);
+        this.logics.hit(nextPosition.getX(), nextPosition.getY());
+        assertTrue(this.logics.hasKnight(nextPosition.getX(), nextPosition.getY()));
+    }
+
+    @Test
+    public void testKnightHitPawn(){
+        final Pair<Integer, Integer> pawn = new Pair<>(2, 1);
+        this.logics = new LogicsImpl(SIZE, knight, pawn);
+        assertTrue(this.logics.hit(pawn.getX(), pawn.getY()));
     }
 
 
