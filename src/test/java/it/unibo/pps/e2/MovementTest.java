@@ -13,7 +13,7 @@ public class MovementTest {
 
     @BeforeEach
     void beforeEach(){
-        this.movement = new MovementImpl();
+        this.movement = new MovementImpl(SIZE);
     }
 
     @Test
@@ -25,14 +25,14 @@ public class MovementTest {
                 initPosition.getX(),
                 initPosition.getY(),
                 finalPosition.getX(),
-                finalPosition.getY(),
-                SIZE
+                finalPosition.getY()
         );
         if (newPosition.isPresent()){
             initPosition = newPosition.get();
         }
         assertTrue(initPosition.getX() == 2 && initPosition.getY() == 1);
     }
+
 }
 
 
