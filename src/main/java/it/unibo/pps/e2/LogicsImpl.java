@@ -7,10 +7,9 @@ public class LogicsImpl implements Logics {
 
     public LogicsImpl(int size) {
         RandomPosition randomPosition = new RandomPositionImpl(size);
-        Movement movement = new MovementImpl(size);
         Pair<Integer, Integer> pawn = randomPosition.randomEmptyPosition();
         Pair<Integer, Integer> knight = randomPosition.randomEmptyPosition(pawn);
-        this.state = new GameStateImpl(knight, pawn, movement);
+        this.state = new GameStateImpl(knight, pawn, new MovementImpl(size));
     }
 
     public LogicsImpl(int size, Pair<Integer, Integer> knight, Pair<Integer, Integer> pawn) {

@@ -12,16 +12,6 @@ public class GameStateImpl implements GameState{
     }
 
     @Override
-    public Pair<Integer, Integer> getKnight() {
-        return this.knight;
-    }
-
-    @Override
-    public Pair<Integer, Integer> getPawn() {
-        return this.pawn;
-    }
-
-    @Override
     public boolean hasKnight(int row, int col) {
         return this.knight.equals(new Pair<>(row, col));
     }
@@ -36,6 +26,5 @@ public class GameStateImpl implements GameState{
         var next = this.movement.move(knight.getX(), knight.getY(), row, col);
         next.ifPresent(pos -> this.knight = pos);
         return this.hasKnight(row, col) && this.hasPawn(row, col);
-
     }
 }

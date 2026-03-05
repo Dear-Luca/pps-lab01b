@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class RandomPositionImpl implements RandomPosition {
     private final Random random = new Random();
-    private int size;
+    private final int size;
 
     public RandomPositionImpl(int size) {
         this.size = size;

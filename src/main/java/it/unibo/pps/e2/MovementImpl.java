@@ -3,7 +3,8 @@ package it.unibo.pps.e2;
 import java.util.Optional;
 
 public class MovementImpl implements Movement{
-    private int size;
+    public static final int CORRECT_KNIGHT_MOVEMENT = 2;
+    private final int size;
 
     public MovementImpl(int size) {
         this.size = size;
@@ -15,7 +16,7 @@ public class MovementImpl implements Movement{
         }
         int x = newRow - currentRow;
         int y = newCol - currentCol;
-        if (Math.abs(x) * Math.abs(y) == 2){
+        if (Math.abs(x) * Math.abs(y) == CORRECT_KNIGHT_MOVEMENT){
             return Optional.of(new Pair<>(newRow, newCol));
         }
         return Optional.empty();
