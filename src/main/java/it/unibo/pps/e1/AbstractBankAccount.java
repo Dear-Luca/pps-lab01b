@@ -1,13 +1,13 @@
 package it.unibo.pps.e1;
 
-public abstract class AbstractBankAccount implements BankAccount{
+public abstract class AbstractBankAccount implements BankAccount {
     private final BankAccount base;
 
     protected AbstractBankAccount(BankAccount base) {
         this.base = base;
     }
 
-    protected BankAccount getBaseBankAccount(){
+    protected BankAccount getBaseBankAccount() {
         return this.base;
     }
 
