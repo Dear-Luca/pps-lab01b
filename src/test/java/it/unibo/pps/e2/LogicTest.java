@@ -70,6 +70,4 @@ public class LogicTest {
         this.logics = new LogicsImpl(SIZE, knight, pawn);
         assertTrue(this.logics.hit(pawn.getX(), pawn.getY()));
     }
-
-
 }
