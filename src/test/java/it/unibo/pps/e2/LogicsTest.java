@@ -4,7 +4,7 @@ import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class LogicTest {
+public class LogicsTest {
     private Logics logics;
     private static final int SIZE = 5;
     private static final Pair<Integer, Integer> knight = new Pair<>(0, 0);
