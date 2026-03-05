@@ -16,8 +16,8 @@ public class RandomPositionImpl implements RandomPosition {
     }
 
     @Override
-    public Pair<Integer, Integer> randomEmptyPosition(Pair<Integer, Integer> position) {
+    public Pair<Integer, Integer> randomEmptyPosition(Pair<Integer, Integer> excluded) {
         Pair<Integer, Integer> pos = new Pair<>(this.random.nextInt(size), this.random.nextInt(size));
-        return position != null && position.equals(pos) ? randomEmptyPosition(position) : pos;
+        return excluded != null && excluded.equals(pos) ? randomEmptyPosition(excluded) : pos;
     }
 }
