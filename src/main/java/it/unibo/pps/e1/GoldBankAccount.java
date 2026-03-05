@@ -1,21 +1,11 @@
 package it.unibo.pps.e1;
 
-public class GoldBankAccount implements BankAccount {
-    private final BankAccount base;
+public class GoldBankAccount extends AbstractBankAccount {
+
     private static final int OVERDRAFT = 500;
 
     public GoldBankAccount(BankAccount base) {
-        this.base = base;
-    }
-
-    @Override
-    public int getBalance() {
-        return base.getBalance();
-    }
-
-    @Override
-    public void deposit(int amount) {
-        this.base.deposit(amount);
+        super(base);
     }
 
     @Override
@@ -23,6 +13,6 @@ public class GoldBankAccount implements BankAccount {
         if (amount - this.getBalance() > OVERDRAFT) {
             throw new IllegalStateException();
         }
-        this.base.withdraw(amount);
+        getBaseBankAccount().withdraw(amount);
     }
 }
