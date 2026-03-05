@@ -24,9 +24,7 @@ public class LogicsImpl implements Logics {
 
     @Override
     public boolean hit(int row, int col) {
-        if (row < 0 || col < 0 || row >= this.size || col >= this.size) {
-            throw new IndexOutOfBoundsException();
-        }
+
         // Below a compact way to express allowed moves for the knight
         int x = row - this.knight.getX();
         int y = col - this.knight.getY();
